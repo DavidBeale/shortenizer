@@ -1,6 +1,5 @@
 import micro from 'micro';
 import microrouter from 'microrouter';
-import redirect from 'micro-redirect';
 
 import { resolve, create } from '../domain/Shortener.mjs';
 
@@ -15,9 +14,12 @@ export default router(
 function handleGet(req, res) {
   const url = resolve(req.params.code);
   if (url) {
-    redirect(res, 301, url);
+    res.setHeader('Location', url);
+    return send(res, 301, {
+      url
+    });
   }
-  send(res, 404, 'Not Found');
+  return send(res, 404, 'Not Found');
 }
 
 

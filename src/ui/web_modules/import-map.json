@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "lit-html": "./lit-html.js?rev=08bc96ba21"
-  }
-}

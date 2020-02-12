@@ -12,7 +12,7 @@
   },
   "rules": {
     "import/extensions": ["error", "always", {
-      js: "never",
+      js: "ignorePackages",
       mjs: "always",
     }],
     "comma-dangle": ["error", "never"],

@@ -18,9 +18,18 @@ export default handleErrors(async (req, res) => router(
 
 function ui(req, res) {
   return handler(req, res, {
-    public: './src/ui',
-    rewrites: [
-      { source: '/ui/**', destination: '/index.html' }
+    public: './src',
+    // rewrites: [
+    //   { source: '/ui/**', destination: '/**' }
+    // ],
+    headers: [
+      {
+        source: '**/*.@(js|mjs)',
+        headers: [{
+          key: 'Content-Type',
+          value: 'text/javascript'
+        }]
+      }
     ]
   });
 }

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "NODE_ENV=test jest",
     "start": "nodemon src/server.mjs",
-    "lint": "eslint src/**/*.mjs"
+    "lint": "eslint src/**/*.mjs",
+    "prepare": "snowpack --dest src/ui/web_modules/"
   },
   "keywords": [
     "URL",
@@ -35,6 +36,13 @@
     "eslint-plugin-import": "^2.20.1",
     "esm": "^3.2.25",
     "jest": "^25.1.0",
+    "lit-html": "^1.1.2",
+    "snowpack": "^1.2.0",
     "test-listen": "^1.1.0"
+  },
+  "snowpack": {
+    "webDependencies": [
+      "lit-html"
+    ]
   }
 }

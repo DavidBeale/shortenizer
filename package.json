@@ -7,13 +7,20 @@
     "test": "NODE_ENV=test jest",
     "start": "nodemon src/server.mjs",
     "lint": "eslint src/**/*.mjs",
-    "prepare": "snowpack --dest src/ui/web_modules/"
+    "prepare": "snowpack --dest src/ui/web_modules/",
+    "docker:build": "docker build -t shortenizr .",
+    "docker:run": "docker run -d -p 4000:4000 shortenizr",
+    "build": "npm run lint && npm run test && npm run docker:build"
   },
   "keywords": [
     "URL",
     "short",
     "shorten"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidBeale/shortenizer"
+  },
   "author": "David Beale",
   "license": "MIT",
   "engineStrict": true,
